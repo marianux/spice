@@ -1,4 +1,4 @@
-Circuit: * G:\mariano\Escritorio\Enlace hacia Docencia\TC2\scripts\analog filters\python\spice\Ej_5.13_con_GIC.asc
+Circuit: * C:\users\mariano\Escritorio\Enlace hacia Docencia\TC2\scripts\analog filters\python\spice\Ej_5.13_con_GIC.asc
 
 Ignoring empty pin current: Ix(u1:1)
 Ignoring empty pin current: Ix(u1:2)
@@ -7,8 +7,8 @@ Ignoring empty pin current: Ix(u2:1)
 Ignoring empty pin current: Ix(u2:2)
 Ignoring empty pin current: Ix(u2:3)
 
-Date: Tue Mar 28 11:46:46 2023
-Total elapsed time: 0.053 seconds.
+Date: Thu Mar 30 14:56:28 2023
+Total elapsed time: 0.120 seconds.
 
 tnom = 27
 temp = 27
