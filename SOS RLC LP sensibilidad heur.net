@@ -1,0 +1,18 @@
+* Z:\home\mariano\Escritorio\Enlace hacia Docencia\TC2\scripts\analog filters\python\spice\SOS RLC LP sensibilidad heur.asc
+L N001 Vo {L/w0}
+C Vo 0 {C/w0}
+V1 Vi 0 SINE(0 1 0 0 0 0 1000) AC 1 0
+R1 N001 Vi {R}
+.ac dec 1000 {f0/10} {f0*10}
+.step param C 0.95 1.05 .01
+.step param L 0.95 1.05 .01
+.step param R 0.95 1.05 .01
+.param f0=w0/2/pi
+.param w0=2*pi
+#.param w0=1
+* Norma de frecuencia
+* ¿para qué serviría esta norma?
+* Análisis de AC (resp en frecuencia)
+* Análisis de la sensibilidad (Heurística)
+.backanno
+.end
