@@ -1,0 +1,43 @@
+* Z:\home\mariano\Escritorio\Enlace hacia spice\GIC bicuad.asc
+R1 va vi {Q*R/(b+eps)}
+RG1 va vb {R}
+RG3 vc vo {R}
+RG4 vo vd {R}
+RG5 vd 0 {R/(1-c+eps)}
+C1 va 0 {(1-a)*C0}
+CG2 vb vc {C0}
+XU1 vc va vo opamp Aol=100K GBW=10Meg
+XU2 vc vd vb opamp Aol=100K GBW=10Meg
+R2 0 va {Q*R/(1-b+eps)}
+C2 va vi {a*C0}
+RG2 vi vd {R/(c+eps)}
+V1 vi 0 AC 1
+.inc opamp.sub
+*.ac dec 1000 {f0/100} {f0*100}
+#.param Qz=5 wz=0.5 * w0
+* Versión normalizada
+*.param znorm=1 wnorm=1 f0=w0/2/pi
+* Full bicuad config
+.param R=znorm/w0/C0 C0 = 1
+* Configuración de la simulación
+#.param c= k*wz*wz/w0/w0 a = (k+c)/2 b = k * wz / 2 / w0 *(Q/Qz + wz/w0)
+* Low/High pass notch
+#.param c= k*wz*wz/w0/w0 a = (k+c)/2 b = c/2
+#.param  wz=.10 * wnorm
+* Highpass config
+#.param c= 0 b = 0 a = k/2
+.param k=1 Q=sqrt(2)/2 w0=1 * wnorm
+* Allpass config
+.param c= 1 a = 1 b = 0
+* Lowpass config
+#.param c= k a = c/2 b = c/2
+* Bandpass config
+#.param c= 0 a = 0 b = k/2
+* Parámetros generales
+.param eps = 1e-10
+* eps es un nro muy pequeño para\nevitar divisiones por cero, etc
+* SOS parametrization
+* Notch config
+#.param c= 1 a = 1 b = 1/2
+.backanno
+.end
