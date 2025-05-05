@@ -1,0 +1,27 @@
+* C:\users\mariano\Escritorio\Enlace hacia spice\GIC-Fliege highpass notch.ASC.asc
+R1 N002 vi {Q*R/a}
+RG1 N002 N004 {R}
+RG3 N003 vo {R}
+RG4 vo N001 {R}
+RG5 N001 vi {R}
+C1 vi N002 {C}
+CG2 N004 N003 {C}
+XU1 N003 N002 vo opamp Aol=100K GBW=10Meg
+XU2 N003 N001 N004 opamp Aol=100K GBW=10Meg
+V1 vi 0 AC 1 1
+R2 0 N002 {Q*R/(1-a)}
+.inc opamp.sub
+.ac dec 100 {ww/2/pi/10} {ww/2/pi*10}
+.param k1=1 Q=5 wo1=ww
+#.param wz=10e3 ww=2*pi*50
+* Versión normalizada
+* Versión desnormalizada
+.param C={1/R/wo1} R1={R}
+.param wz=1 ww=1
+.param R=wz
+* Configuración de la simulación
+* Atenuador
+.param a=1/2
+* Basado en GIC bilineal (Schaumann 5.16)
+.backanno
+.end
